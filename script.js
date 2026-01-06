@@ -1,38 +1,25 @@
-const BOT_URLS = {
-    graduation: "https://kw.factchat.bot/졸업요건봇주소",
-    timetable: "https://kw.factchat.bot/시간표봇주소",
-    lecture: "https://kw.factchat.bot/강의추천봇주소",
-    admin: "https://kw.factchat.bot/행정봇주소"
-};
-
-function startChat(botType) {
-    const targetUrl = BOT_URLS[botType];
-    if (targetUrl) {
-        window.location.href = targetUrl;
-    } else {
-        alert("아직 준비 중인 챗봇입니다.");
-    }
+function openHelp() {
+    document.getElementById('help-modal').classList.remove('hidden');
 }
 
-const modal = document.getElementById('help-modal');
-function openHelp() { modal.classList.remove('hidden'); }
-function closeHelp() { modal.classList.add('hidden'); }
-window.onclick = function(event) { if (event.target == modal) closeHelp(); }
+function closeHelp() {
+    document.getElementById('help-modal').classList.add('hidden');
+}
 
-document.addEventListener('keydown', function(event) {
-    const slider = document.getElementById('slider');
-    const card = slider.querySelector('.card');
-    if (!card) return;
+function startChat(type) {
+    let botName = "";
+    if(type === 'graduation') botName = "졸업 요건 AI";
+    else if(type === 'timetable') botName = "시간표 매니저";
+    else if(type === 'lecture') botName = "강의 추천 봇";
+    
+    alert(botName + " 서비스를 시작합니다! (챗봇 연결 예정)");
+}
 
-    const scrollAmount = card.offsetWidth + 25;
-
-    if (event.key === 'ArrowRight') {
-        slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    } else if (event.key === 'ArrowLeft') {
-        slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+// 마우스 휠로 가로 슬라이드 제어
+const slider = document.getElementById('slider');
+slider.addEventListener('wheel', (e) => {
+    if (e.deltaY !== 0) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY;
     }
 });
-
-window.onload = function() {
-    document.body.focus();
-}
