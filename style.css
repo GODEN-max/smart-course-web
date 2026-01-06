@@ -1,0 +1,205 @@
+:root {
+    --kw-burgundy: #8a162b;
+    --text-dark: #333333;
+    --text-white: #ffffff;
+}
+
+body {
+    margin: 0; padding: 0;
+    font-family: 'Montserrat', 'Apple SD Gothic Neo', sans-serif;
+    background: linear-gradient(120deg, #ffffff 40%, #8a162b 100%);
+    background-attachment: fixed;
+    height: 100vh;
+    color: var(--text-dark);
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: 1px;
+    color: var(--kw-burgundy);
+}
+
+.kw-badge {
+    background-color: var(--kw-burgundy);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.main-container {
+    display: flex;
+    height: 75vh;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.text-section {
+    flex: 1;
+    padding-right: 40px;
+    animation: fadeIn 1s ease-out;
+}
+
+.text-section h4 {
+    color: var(--kw-burgundy);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.text-section h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+    font-weight: 900;
+    color: #222;
+}
+
+.text-section p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.learn-more-btn {
+    padding: 15px 35px;
+    background: var(--kw-burgundy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 5px 15px rgba(138, 22, 43, 0.3);
+}
+
+.learn-more-btn:hover {
+    transform: translateY(-3px);
+    background: #5e0f1d;
+}
+
+.slider-section {
+    flex: 1.5;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 20px;
+    scroll-behavior: smooth;
+}
+.slider-section::-webkit-scrollbar { display: none; }
+
+.slider-track {
+    display: flex;
+    gap: 25px;
+    padding-right: 50px;
+}
+
+.card {
+    min-width: 260px;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(138, 22, 43, 0.95), transparent);
+    box-sizing: border-box;
+}
+
+.card-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #f0f0f0;
+}
+
+.team-name {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.team-name .highlight {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.5);
+}
+
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; display: flex; justify-content: center; align-items: center; }
+.hidden { display: none; }
+.modal-content { background: #fff; color: #333; padding: 30px; border-radius: 10px; width: 85%; max-width: 350px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.close-btn { float: right; cursor: pointer; color: #aaa; font-size: 20px; }
+.close-btn:hover { color: #000; }
+.confirm-btn { width: 100%; padding: 12px; margin-top: 25px; background: var(--kw-burgundy); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+@media (max-width: 768px) {
+    body { background: white; overflow-y: auto; }
+    .main-container { flex-direction: column; text-align: center; padding: 20px; height: auto; }
+    .slider-section { width: 100%; padding-left: 0; }
+    .team-name { bottom: 10px; right: 0; width: 100%; text-align: center; color: #888; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
