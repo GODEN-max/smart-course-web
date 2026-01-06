@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCourse AI - Kwangwoon Univ.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><span class="kw-badge">KW</span> SmartCourse</div>
+    </nav>
+    <div class="main-container">
+        <div class="text-section">
+            <h4>KWANGWOON UNIV.</h4> 
+            <h1>YOUR CAMPUS<br>AI PARTNER.</h1>
+            <p>졸업까지 완벽하게 안내하는 AI 솔루션<br>복잡한 계산은 AI에게 맡기고<br>당신은 대학 생활에 집중하세요</p>
+            <button class="learn-more-btn" onclick="openHelp()">시스템 소개</button>
+        </div>
+        <div class="slider-section" id="slider">
+            <div class="slider-track">
+                <div class="card" onclick="startChat('graduation')">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div class="card-content"><h3>졸업 요건 AI</h3><p>졸업 이수 학점 & 판게아 진단</p></div>
+                </div>
+                <div class="card" onclick="startChat('timetable')">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div class="card-content"><h3>시간표 매니저</h3><p>공강 확보 & 맞춤 설계</p></div>
+                </div>
+                <div class="card" onclick="startChat('lecture')">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div class="card-content"><h3>강의 추천 봇</h3><p>강의평 & 꿀강 분석</p></div>
+                </div>
+                <div class="card" onclick="startChat('admin')">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div class="card-content"><h3>행정 도우미</h3><p>장학금 & 학사일정</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="team-name">Designed by <span class="highlight">Team. 용석좀</span></div>
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeHelp()">&times;</span>
+            <h2>📖 이용 가이드</h2>
+            <p>원하는 챗봇 카드를 클릭하여<br>대화를 시작하세요</p>
+            <hr>
+            <ul style="text-align: left; padding-left: 20px; color: #333;">
+                <li>🎓 졸업 요건: 필수 이수 과목 체크</li>
+                <li>📅 시간표: 개인 맞춤 시간표 생성</li>
+            </ul>
+            <button class="confirm-btn" onclick="closeHelp()">확인</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
